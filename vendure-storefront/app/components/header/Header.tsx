@@ -1,101 +1,149 @@
-import { Link, useLoaderData } from '@remix-run/react';
-import { ShoppingBagIcon } from '@heroicons/react/24/outline';
+import { Link } from '@remix-run/react';
 import { SearchBar } from '~/components/header/SearchBar';
 import { useRootLoader } from '~/utils/use-root-loader';
-import { UserIcon } from '@heroicons/react/24/solid';
 import { useScrollingUp } from '~/utils/use-scrolling-up';
 import { classNames } from '~/utils/class-names';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
-export function Header({
-  onCartIconClick,
-  cartQuantity,
-}: {
-  onCartIconClick: () => void;
-  cartQuantity: number;
-}) {
+export function Header() {
   const data = useRootLoader();
-  const isSignedIn = !!data.activeCustomer.activeCustomer?.id;
   const isScrollingUp = useScrollingUp();
   const { t } = useTranslation();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header
       className={classNames(
         isScrollingUp ? 'sticky top-0 z-10 animate-dropIn' : '',
-        'bg-gradient-to-r from-zinc-700 to-gray-900 shadow-lg transform shadow-xl',
+        'bg-white transform shadow-xl',
       )}
     >
-      <div className="bg-zinc-100 text-gray-600 shadow-inner text-center text-sm py-2 px-2 xl:px-0">
-        <div className="max-w-6xl mx-2 md:mx-auto flex items-center justify-between">
-          <div>
-            <p className="hidden sm:block">
-              {t('vendure.exclusive')}{' '}
-              <a
-                href="https://funkyton.com/vendure-tutorial/"
-                target="_blank"
-                className="underline"
-              >
-                {t('vendure.repoLinkLabel')}
-              </a>
-            </p>
-          </div>
-          <div>
-            <Link
-              to={isSignedIn ? '/account' : '/sign-in'}
-              className="flex space-x-1"
-            >
-              <UserIcon className="w-4 h-4"></UserIcon>
-              <span>
-                {isSignedIn ? t('account.myAccount') : t('account.signIn')}
-              </span>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="max-w-6xl mx-auto p-4 flex items-center space-x-4">
-        <h1 className="text-white w-10">
+      <div className="max-w-6xl mx-auto p-4 flex items-center justify-between">
+        {/* Logo on the far left */}
+        <div className="w-32">
           <Link to="/">
             <img
-              src="/cube-logo-small.webp"
-              width={40}
-              height={31}
+              src="/logo.svg"
+              width={250}
+              height={250}
               alt={t('commmon.logoAlt')}
             />
           </Link>
-        </h1>
-        <div className="flex space-x-4 hidden sm:block">
-          {data.collections.map((collection) => (
-            <Link
-              className="text-sm md:text-base text-gray-200 hover:text-white"
-              to={'/collections/' + collection.slug}
-              prefetch="intent"
-              key={collection.id}
-            >
-              {collection.name}
-            </Link>
-          ))}
         </div>
-        <div className="flex-1 md:pr-8">
-          <SearchBar></SearchBar>
-        </div>
-        <div className="">
+
+        {/* Mobile menu icon */}
+        <div className="block lg:hidden">
           <button
-            className="relative w-9 h-9 bg-white bg-opacity-20 rounded text-white p-1"
-            onClick={onCartIconClick}
-            aria-label="Open cart tray"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-black focus:outline-none"
           >
-            <ShoppingBagIcon></ShoppingBagIcon>
-            {cartQuantity ? (
-              <div className="absolute rounded-full -top-2 -right-2 bg-primary-600 min-w-6 min-h-6 flex items-center justify-center text-xs p-1">
-                {cartQuantity}
-              </div>
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             ) : (
-              ''
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5m-16.5 5.25h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
             )}
           </button>
         </div>
+
+        {/* Centered navigation links (visible on large screens only) */}
+        <nav className="hidden lg:flex flex-1 justify-center space-x-6">
+          <Link
+            className="text-sm md:text-base text-black hover:text-blue-900"
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className="text-sm md:text-base text-black hover:text-blue-900"
+            to="/contact"
+          >
+            Contact
+          </Link>
+          <Link
+            className="text-sm md:text-base text-black hover:text-blue-900"
+            to="/product"
+          >
+            Products
+          </Link>
+          <Link
+            className="text-sm md:text-base text-black hover:text-blue-900"
+            to="/sell"
+          >
+            Sell
+          </Link>
+        </nav>
+
+        {/* Search Bar (always visible on large screens, and on mobile optionally) */}
+        <div className="hidden lg:block flex-grow-0">
+          <SearchBar />
+        </div>
+
+        {/* Mobile Menu (visible when toggled) */}
+        {isMenuOpen && (
+          <nav
+            className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-4 flex flex-col items-center space-y-4"
+            onClick={() => setIsMenuOpen(false)} // This ensures that clicking anywhere inside the menu closes it.
+          >
+            <Link
+              className="text-base text-black hover:text-blue-900"
+              to="/about"
+            >
+              About
+            </Link>
+            <Link
+              className="text-base text-black hover:text-blue-900"
+              to="/contact"
+            >
+              Contact
+            </Link>
+            <Link
+              className="text-base text-black hover:text-blue-900"
+              to="/products"
+            >
+              Products
+            </Link>
+            <Link
+              className="text-base text-black hover:text-blue-900"
+              to="/sell"
+            >
+              Sell
+            </Link>
+            <div className="w-full px-4">
+              <SearchBar />
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );
 }
+
+export default Header;
