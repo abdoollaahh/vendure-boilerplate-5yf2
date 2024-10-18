@@ -36,7 +36,7 @@ export default function About() {
           </div>
           <div>
             <img
-              src="/images/mission.jpg"
+              src="/spacecar.jpeg"
               alt="Notre Mission"
               className="w-full h-full object-cover rounded-lg shadow-md"
             />
@@ -75,54 +75,6 @@ export default function About() {
                 Nous adoptons la créativité et les nouvelles idées pour
                 améliorer continuellement nos services.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section Équipe */}
-      <div className="mt-12 bg-white py-16">
-        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-800">
-            Rencontrez notre équipe
-          </h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Une équipe dévouée qui travaille sans relâche pour obtenir les
-            meilleurs résultats pour nos clients.
-          </p>
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6">
-              <img
-                src="/images/team-member-1.jpg"
-                alt="Membre de l'équipe"
-                className="w-full h-48 object-cover rounded-lg shadow-md"
-              />
-              <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                John Doe
-              </h3>
-              <p className="mt-2 text-gray-600">PDG & Fondateur</p>
-            </div>
-            <div className="p-6">
-              <img
-                src="/images/team-member-2.jpg"
-                alt="Membre de l'équipe"
-                className="w-full h-48 object-cover rounded-lg shadow-md"
-              />
-              <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                Jane Smith
-              </h3>
-              <p className="mt-2 text-gray-600">Directrice Technique</p>
-            </div>
-            <div className="p-6">
-              <img
-                src="/images/team-member-3.jpg"
-                alt="Membre de l'équipe"
-                className="w-full h-48 object-cover rounded-lg shadow-md"
-              />
-              <h3 className="mt-4 text-xl font-semibold text-gray-800">
-                Michael Johnson
-              </h3>
-              <p className="mt-2 text-gray-600">Responsable Marketing</p>
             </div>
           </div>
         </div>

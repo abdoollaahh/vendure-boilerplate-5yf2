@@ -7,21 +7,21 @@ import Rental from '../../public/convertible.svg';
 const data = [
   {
     id: '1',
-    title: 'New',
+    title: 'Neuf',
     handle: 'new-cars',
     link: 'new',
     image: New,
   },
   {
     id: '2',
-    title: 'Used',
+    title: 'Occasion',
     handle: 'used-cars',
     link: 'used',
     image: Used,
   },
   {
     id: '3',
-    title: 'Rental',
+    title: 'Location',
     handle: 'rental-cars',
     link: 'rental',
     image: Rental,
@@ -68,7 +68,7 @@ const HeroBox: React.FC = () => {
             className="md:text-4xl text-2xl md:text-start text-center font-semibold text-slate-600 cursor-default"
             variants={itemVariants}
           >
-            Search for your dream car
+            Recherche de véhicules
           </motion.h1>
           <motion.ul
             className="flex flex-col md:flex-row md:gap-5 justify-center items-center md:justify-start"
@@ -99,7 +99,7 @@ const HeroBox: React.FC = () => {
         >
           <Link className="hover:text-ui-fg-base" to={`/store`}>
             <button className="w-40 h-12 mt-4 bg-[#0c62c8] text-white rounded-md">
-              View All
+              Voir Tout
             </button>
           </Link>
         </motion.div>

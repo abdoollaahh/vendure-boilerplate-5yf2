@@ -85,9 +85,9 @@ const ItemsContact = () => {
     },
     {
       label: 'Sales',
-      href: 'tel:61409517333',
+      href: 'tel:41328537301',
       icon: <PhoneIcon />,
-      title: '+61 409 517 333',
+      title: '+41 32 853 73 01',
     },
   ];
 

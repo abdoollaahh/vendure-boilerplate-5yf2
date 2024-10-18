@@ -27,7 +27,7 @@ export default function Location() {
 
           <div className="mt-6">
             <a
-              href="https://goo.gl/maps/xyzswisslocation" // Remplacez par le lien Google Maps réel
+              href="https://maps.app.goo.gl/bH84Sy8x65a2S4q46?g_st=iw" // Remplacez par le lien Google Maps réel
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg text-blue-600 font-medium hover:underline inline-flex items-center space-x-2"

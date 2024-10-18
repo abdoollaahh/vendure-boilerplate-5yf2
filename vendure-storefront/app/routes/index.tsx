@@ -5,6 +5,7 @@ import { LoaderArgs } from '@remix-run/server-runtime';
 import { useTranslation } from 'react-i18next';
 import HeroBox from './HeroBox';
 import HeaderImage from '../../public/sellCar.jpg';
+import PromotionImage from '../../public/promotion.jpeg';
 import Locations from './Locations';
 import GoogleReviews from './GoogleReviews';
 
@@ -58,18 +59,11 @@ export default function Index() {
             <div className="w-full">
               <div className="bg-white shadow-xl rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                 <img
-                  src={HeaderImage} // Ensure the correct image path is used here
+                  src={PromotionImage} // Ensure the correct image path is used here
                   alt="Promotion Car"
-                  className="w-full h-64 object-cover"
+                  className="w-full h-[10rems] object-fill"
                 />
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    Featured Car on Promotion
-                  </h3>
-                  <p className="mt-2 text-gray-600">
-                    A brief description of the car on promotion. Highlight its
-                    best features and why customers should be interested.
-                  </p>
                   <div className="mt-4">
                     <a
                       href="/collections/promotions"
@@ -86,19 +80,20 @@ export default function Index() {
             <div className="w-full">
               <div className="text-gray-700">
                 <h3 className="text-4xl font-semibold">
-                  Amazing Cars on Promotion
+                  Voitures incroyables en promotion
                 </h3>
                 <p className="mt-4 text-lg leading-relaxed">
-                  Discover a wide variety of new, used, and rental cars
-                  currently on promotion. Whether you're looking for the latest
-                  models or reliable budget-friendly options, we've got you
-                  covered. Take advantage of these exclusive deals before
-                  they're gone!
+                  Découvrez une grande variété de voitures neuves, d'occasion et
+                  de location actuellement en promotion. Que vous cherchiez les
+                  derniers modèles ou des options fiables et économiques, nous
+                  avons ce qu'il vous faut. Profitez de ces offres exclusives
+                  avant qu'elles ne disparaissent !
                 </p>
                 <p className="mt-4 text-lg leading-relaxed">
-                  Visit our promotions page for detailed information about
-                  discounts, financing options, and other limited-time offers.
-                  Drive away in your dream car today!
+                  Visitez notre page promotions pour obtenir des informations
+                  détaillées sur les réductions, les options de financement et
+                  d'autres offres en édition limitée. Repartez au volant de la
+                  voiture de vos rêves dès aujourd'hui !
                 </p>
               </div>
             </div>

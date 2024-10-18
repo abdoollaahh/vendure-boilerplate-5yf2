@@ -8,17 +8,18 @@ const HeaderContact = () => {
         Space-Car
       </h2>
       <p className="text-base sm:text-lg text-left">
-        We are here to assist you with any questions or concerns you may have
-        about our services. Whether you need help with booking, have inquiries
-        about our fleet, or need support with your existing reservations, our
-        team is ready to help. Reach out to us through the contact form below,
-        or give us a call at our customer service number. We look forward to
-        hearing from you!
+        Pour venir découvrir les véhicules d’occasions ainsi que les véhicules
+        neufs pendant le week-end, il est préférable de téléphoner pour prendre
+        un rendez-vous avant de vous présenter sur place. Merci pour votre
+        compréhension.
       </p>
       <p className="text-base sm:text-lg max-w-2xl">
-        Our customer service hours are Monday to Friday, 9 AM to 6 PM. We strive
-        to respond to all inquiries within 24 hours. Thank you for choosing
-        Space-Car!
+        Nos horaires de service sont les suivants :
+        <br />• Lundi à Jeudi, Dimanche : 7h30 – 12h00 / 13h30 – 18h00 <br />•
+        Vendredi : 7h30 – 12h00 / 13h30 – 17h00 <br />• Samedi : Sur rendez-vous
+        <br />
+        Nous nous efforçons de répondre à toutes les demandes dans un délai de
+        24 heures. Merci de choisir Space-Car !
       </p>
     </div>
   );
